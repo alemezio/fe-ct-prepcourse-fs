@@ -39,6 +39,20 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+   var arregloDeString = string.split('');
+   var arregloMayusculas =[];
+   var arregloResto =[];
+   var auxiliar='';
+   arregloDeString.forEach(caracter =>{
+      auxiliar = caracter
+      if (caracter===auxiliar.toUpperCase()){
+         arregloMayusculas.push(caracter);
+      } else {
+         arregloResto.push(caracter);
+      };
+   });
+   var resultado = arregloMayusculas.join('')+arregloResto.join('');
+   return resultado
 }
 
 function asAmirror(frase) {
@@ -46,18 +60,42 @@ function asAmirror(frase) {
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
+   var arregloDePalabras = frase.split(' ');
+   var auxiliar=[];
+   for (i=0;i<arregloDePalabras.length;i++){
+      auxiliar = arregloDePalabras[i].split('');
+      auxiliar.reverse();
+      arregloDePalabras[i]=auxiliar.join('');
+   };
+   var resultado = arregloDePalabras.join(' ');
+   return resultado;
 }
 
 function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
+   var arreglo = Array.from(String(numero),Number);
+   var ll = Math.floor(arreglo.length / 2);
+   for (i=0;i<ll;i++){
+      if (arreglo[i]!=arreglo[arreglo.length-i-1]){
+         return 'No es capicua';
+      };
+   };
+   return 'Es capicua'
 }
 
 function deleteAbc(string) {
    // Tu tarea es eliminar las letras "a", "b" y "c" del string recibido.
    // Retorna el string sin estas letras.
    // Tu código:
+   // PUEDO HACER UN FOR ENTRE LOS CARACTERES CON LO SIGUIENTE
+   // for (i=0;i<string.length;i++){};
+   // PERO NO LO VOY A USAR
+   var cadenaSinA = string.replace('a','');
+   var cadenaSinAB = cadenaSinA.replace('b','');
+   var cadenaSinABC = cadenaSinAB.replace('c','');
+   return cadenaSinABC;
 }
 
 function sortArray(arrayOfStrings) {
